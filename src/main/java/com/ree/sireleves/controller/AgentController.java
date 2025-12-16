@@ -18,7 +18,7 @@ public class AgentController {
 
     @PutMapping("/{agentId}/quartier")
     public Agent affecter(@PathVariable Long agentId,
-                          @Valid @RequestBody AgentRequest request) {
+                            @Valid @RequestBody AgentRequest request) {
         return agentService.affecterAgent(agentId, request.getQuartierId());
     }
 }
