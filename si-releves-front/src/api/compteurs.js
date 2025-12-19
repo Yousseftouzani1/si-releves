@@ -1,15 +1,14 @@
 import api from "./axios";
 
 /**
- * 🚰 Lister tous les compteurs
+ * 📊 Récupérer tous les compteurs
  */
 export const getCompteurs = () => {
   return api.get("/compteurs");
 };
 
 /**
- * 🔍 Détails d’un compteur
- * @param {number} id
+ * 📊 Récupérer un compteur par ID
  */
 export const getCompteurById = (id) => {
   return api.get(`/compteurs/${id}`);
@@ -17,17 +16,35 @@ export const getCompteurById = (id) => {
 
 /**
  * ➕ Créer un nouveau compteur
- * @param {Object} data
- * data = { adresseId, type }
  */
-export const createCompteur = (data) => {
-  return api.post("/compteurs", data);
+export const createCompteur = (compteurData) => {
+  return api.post("/compteurs", compteurData);
 };
 
 /**
- * 📊 Historique des relevés d’un compteur
- * @param {number} compteurId
+ * ✏️ Modifier un compteur
  */
-export const getRelevesByCompteur = (compteurId) => {
-  return api.get(`/compteurs/${compteurId}/releves`);
+export const updateCompteur = (id, compteurData) => {
+  return api.put(`/compteurs/${id}`, compteurData);
+};
+
+/**
+ * 🗑️ Supprimer un compteur
+ */
+export const deleteCompteur = (id) => {
+  return api.delete(`/compteurs/${id}`);
+};
+
+/**
+ * 📈 Historique des relevés d'un compteur
+ */
+export const getCompteurReleves = (id) => {
+  return api.get(`/compteurs/${id}/releves`);
+};
+
+/**
+ * 🔍 Rechercher un compteur par numéro
+ */
+export const searchCompteurByNumero = (numero) => {
+  return api.get(`/compteurs/search?numero=${numero}`);
 };

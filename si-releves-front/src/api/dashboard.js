@@ -7,6 +7,9 @@ export const getDashboardKpis = () => {
   return api.get("/dashboard/kpis");
 };
 
+// Alias for getDashboardKpis
+export const getDashboardStats = getDashboardKpis;
+
 /**
  * 📉 Évolution de la consommation (eau / électricité)
  * Paramètres optionnels :

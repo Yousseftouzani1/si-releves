@@ -1,5 +1,7 @@
+import "../styles/layout.css";
+
 const Loader = () => {
-  return <p>Chargement...</p>;
+  return <div className="loader"></div>;
 };
 
 export default Loader;
